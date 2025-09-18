@@ -1,0 +1,16 @@
+<h2><%= item._id ? "Sửa nhà cung cấp" : "Thêm nhà cung cấp" %></h2>
+
+<form action="<%= action %>" method="POST">
+  <label>Tên:</label>
+  <input type="text" name="name" value="<%= item.name || '' %>" required><br>
+
+  <label>Địa chỉ:</label>
+  <input type="text" name="address" value="<%= item.address || '' %>"><br>
+
+  <label>Điện thoại:</label>
+  <input type="text" name="phone" value="<%= item.phone || '' %>"><br>
+
+  <button type="submit">Lưu</button>
+</form>
+
+<a href="/suppliers">Quay lại danh sách</a>

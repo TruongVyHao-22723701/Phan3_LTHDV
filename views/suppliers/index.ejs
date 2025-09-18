@@ -1,0 +1,24 @@
+<h1>Danh sách nhà cung cấp</h1>
+<a href="/suppliers/new">+ Thêm nhà cung cấp</a>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>Tên</th>
+        <th>Địa chỉ</th>
+        <th>Số điện thoại</th>
+        <th>Hành động</th>
+    </tr>
+    <% suppliers.forEach(supplier => { %>
+        <tr>
+            <td><%= supplier.name %></td>
+            <td><%= supplier.address %></td>
+            <td><%= supplier.phone %></td>
+            <td>
+                <a href="/suppliers/<%= supplier._id %>/edit">Sửa</a>
+                <form action="/suppliers/<%= supplier._id %>/delete" method="POST" style="display:inline;">
+                    <button type="submit" onclick="return confirm('Xóa nhà cung cấp này?')">Xóa</button>
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+</table>

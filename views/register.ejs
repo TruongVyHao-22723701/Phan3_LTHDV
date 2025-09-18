@@ -1,0 +1,29 @@
+<h2>Đăng ký</h2>
+
+<% if (errors && errors.length) { %>
+  <div class="alert alert-danger">
+    <ul>
+      <% errors.forEach(e => { %>
+        <li><%= e %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<form action="/auth/register" method="POST">
+  <label>Username:</label>
+  <input type="text" name="username" required><br>
+
+  <label>Email:</label>
+  <input type="email" name="email" required><br>
+
+  <label>Số điện thoại:</label>
+  <input type="text" name="phone"><br>
+
+  <label>Password:</label>
+  <input type="password" name="password" required><br>
+
+  <button type="submit">Đăng ký</button>
+</form>
+
+<p>Đã có tài khoản? <a href="/auth/login">Đăng nhập</a></p>

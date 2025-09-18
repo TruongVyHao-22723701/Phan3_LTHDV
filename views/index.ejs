@@ -1,0 +1,14 @@
+
+<h1>Chào mừng đến với Website Quản lý</h1>
+
+<form action="/products" method="get">
+    <input type="text" name="q" placeholder="Tìm sản phẩm theo tên..." value="<%= q || '' %>">
+    <button type="submit">Tìm kiếm</button>
+</form>
+
+<h2>Chọn sản phẩm theo nhà cung cấp</h2>
+<ul>
+    <% suppliers.forEach(supplier => { %>
+        <li><a href="/products?supplier=<%= supplier._id %>"><%= supplier.name %></a></li>
+    <% }) %>
+</ul>

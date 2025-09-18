@@ -1,0 +1,13 @@
+<h2>Quên mật khẩu</h2>
+
+<% if (message) { %>
+  <div class="alert alert-info"><%= message %></div>
+<% } %>
+
+<form action="/auth/forgot" method="POST">
+  <label>Email:</label>
+  <input type="email" name="email" required><br>
+  <button type="submit">Gửi yêu cầu</button>
+</form>
+
+<p><a href="/auth/login">Quay lại đăng nhập</a></p>

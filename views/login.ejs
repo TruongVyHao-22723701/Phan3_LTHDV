@@ -1,0 +1,22 @@
+<h2>Đăng nhập</h2>
+
+<% if (errors && errors.length) { %>
+  <div class="alert alert-danger">
+    <ul>
+      <% errors.forEach(e => { %><li><%= e %></li><% }) %>
+    </ul>
+  </div>
+<% } %>
+
+<form action="/auth/login" method="POST">
+  <label>Username:</label>
+  <input type="text" name="username" required><br>
+
+  <label>Password:</label>
+  <input type="password" name="password" required><br>
+
+  <button type="submit">Đăng nhập</button>
+</form>
+
+<p>Quên mật khẩu? <a href="/auth/forgot">Nhấn vào đây</a></p>
+<p>Chưa có tài khoản? <a href="/auth/register">Đăng ký</a></p>

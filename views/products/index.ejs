@@ -1,0 +1,41 @@
+<h2>Danh sách sản phẩm</h2>
+<a href="/products/new">+ Thêm sản phẩm</a>
+
+<form action="/products" method="get" style="margin-top:10px;">
+  <input type="text" name="q" placeholder="Tìm sản phẩm theo tên..." value="<%= q || '' %>">
+  <button type="submit">Tìm kiếm</button>
+</form>
+
+<h3>Lọc theo nhà cung cấp</h3>
+<ul>
+  <% suppliers.forEach(s => { %>
+    <li>
+      <a href="/products?supplier=<%= s._id %>"><%= s.name %></a>
+    </li>
+  <% }) %>
+</ul>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Tên</th>
+    <th>Giá</th>
+    <th>Số lượng</th>
+    <th>Nhà cung cấp</th>
+    <th>Hành động</th>
+  </tr>
+
+  <% products.forEach(p => { %>
+    <tr>
+      <td><%= p.name %></td>
+      <td><%= p.price %></td>
+      <td><%= p.quantity %></td>
+      <td><%= p.supplier ? p.supplier.name : '' %></td>
+      <td>
+        <a href="/products/<%= p._id %>/edit">Sửa</a>
+        <form action="/products/<%= p._id %>/delete" method="POST" style="display:inline">
+          <button type="submit" onclick="return confirm('Xóa sản phẩm này?')">Xóa</button>
+        </form>
+      </td>
+    </tr>
+  <% }) %>
+</table>
